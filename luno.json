@@ -2,11 +2,11 @@
   "name": "BookmarkletWorkshop",
   "version": "1.0.0",
   "description": "Cross-domain AI Studio & browser bookmarklet encoder and remote driver",
-  "type": "luno-tool",
+  "type": "luno-web-app",
   "entrypoint": {
     "file": "BookmarkletApp.js",
     "class": "BookmarkletApp",
-    "method": "init"
+    "method": "run"
   },
   "main": [
     "LunoRelayProtocol.js",
@@ -23,5 +23,6 @@
   ],
   "library": [
     "DomBasics.js"
-  ]
+  ],
+  "mainClass": "BookmarkletApp"
 }

@@ -2,43 +2,37 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bookmarklet Workshop - Luno</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Bookmarklet Workshop — Luno</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      padding: 1rem;
+    html, body {
+      width: 100%;
+      height: 100%;
       min-height: 100vh;
-      font-family: monospace;
+      margin: 0;
+      padding: 0;
       background: #0d1117;
       color: #c9d1d9;
+      font-family: monospace;
     }
-    #workshop-root {
-      max-width: 780px;
-      margin: 0 auto;
+    #app-container {
+      width: 100%;
+      min-height: 100%;
+      box-sizing: border-box;
+      padding: 1rem;
     }
   </style>
+  <script src="/Library/LunoLoader.js" onerror="this.onerror=null; (function(el){ var u=(window.location.hostname.endsWith('.github.io')?window.location.hostname.split('.')[0]:'karmatics'); el.src='https://'+u+'.github.io/Library/LunoLoader.js'; el.onerror=function(){ el.onerror=null; el.src='https://karmatics.github.io/Library/LunoLoader.js'; }; })(this);"></script>
 </head>
 <body>
-  <div id="workshop-root"></div>
-
-  <script src="LunoRelayProtocol.js"><\/script>
-  <script src="JsLanguageDetector.js"><\/script>
-  <script src="CodeCollapserWidget.js"><\/script>
-  <script src="PromptCollapserWidget.js"><\/script>
-  <script src="ResponseGroupWidget.js"><\/script>
-  <script src="AiStudioQueue.js"><\/script>
-  <script src="OutboxNotifier.js"><\/script>
-  <script src="BookmarkletPresets.js"><\/script>
-  <script src="BookmarkletEncoder.js"><\/script>
-  <script src="BookmarkletUI.js"><\/script>
-  <script src="BookmarkletApp.js"><\/script>
+  <div id="app-container"></div>
   <script>
-    window.addEventListener('DOMContentLoaded', () => {
-      const root = document.getElementById('workshop-root');
-      const app = new BookmarkletApp();
-      app.init(root);
+    document.addEventListener("DOMContentLoaded", function() {
+      if (typeof LunoLoader !== "undefined") {
+        LunoLoader.loadApp("app-container");
+      }
     });
-  <\/script>
+  </script>
 </body>
 </html>

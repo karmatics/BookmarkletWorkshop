@@ -236,13 +236,19 @@ class BookmarkletApp {
     logBox.scrollTop = logBox.scrollHeight;
   }
 
-  init(container) {
+  run(env) {
+    const target = (env && env.container) || (typeof env === 'string' ? document.getElementById(env) : null) || document.getElementById('app-container') || document.body;
+    return this.init(target);
+  }
+
+  init(containerOrEnv) {
+    const target = (containerOrEnv && containerOrEnv.container) || containerOrEnv || document.getElementById('workshop-root') || document.body;
     var presets = typeof BookmarkletPresets !== "undefined" ? BookmarkletPresets.getPresets() : [];
     if (!this.source && presets.length > 0) {
       this.source = presets[0].source;
     }
     if (typeof BookmarkletUI !== "undefined" && BookmarkletUI.renderWorkshop) {
-      BookmarkletUI.renderWorkshop(container, this);
+      BookmarkletUI.renderWorkshop(target, this);
     }
   }
 
