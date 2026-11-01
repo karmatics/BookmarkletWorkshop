@@ -24,5 +24,8 @@
   "library": [
     "DomBasics.js"
   ],
-  "mainClass": "BookmarkletApp"
+  "mainClass": "BookmarkletApp",
+  "processedCountSinceCheckpoint": 0,
+  "lastCheckpointTime": "2026-10-31T06:05:17.662Z",
+  "pendingCheckpointDescription": "Clean working tree"
 }
